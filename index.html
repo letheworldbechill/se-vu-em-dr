@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sevu EMDR</title>
+
+<link rel="icon" type="image/png" sizes="512x512" href="icon_sevu_emdr_refined.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash">
+   <img src="icon_sevu_emdr_refined.png" alt="sevu emdr Logo" id="splashLogo">
+</div>
+
+<!-- Stage -->
+<div id="stage">
+    <div id="dotWrapper"><div id="dot"></div></div>
+</div>
+
+<!-- Countdown -->
+<div id="timer" aria-live="polite"></div>
+
+<!-- Controls -->
+<button id="startStop" class="control-btn" aria-label="Start oder Stop der Stimulation">Start</button>
+<button id="menuBtn" class="menu-btn" aria-label="Einstellungen">&#9776;</button>
+
+<!-- Settings Menu -->
+<div id="menu" class="hidden" aria-hidden="true">
+    <h2>Einstellungen</h2>
+
+    <label for="speedRange">BPM: <span id="speedLabel">60</span></label>
+    <input type="range" id="speedRange" min="60" max="240" value="60">
+
+    <label style="margin-top:12px;">Dauer&nbsp;(Sek):</label>
+    <select id="durationSelect" aria-label="Dauer je Set">
+        <option value="30">30</option>
+        <option value="45" selected>45</option>
+        <option value="60">60</option>
+    </select>
+
+    <label style="margin-top:12px;">Anzahl Sets:</label>
+    <input type="number" id="setsInput" min="1" max="12" value="8">
+
+    <label style="margin-top:12px;">Pause&nbsp;(Sek) zwischen Sets:</label>
+    <input type="number" id="pauseInput" min="3" max="30" value="8">
+
+    <label style="margin-top:12px;">Theme:</label>
+    <select id="themeSelect" aria-label="Farbthema">
+        <option value="standard">Standard</option>
+        <option value="sunset">Sunset</option>
+        <option value="mint">Mint</option>
+    </select>
+
+    <label style="margin-top:12px;display:flex;align-items:center;gap:6px;">
+        <input type="checkbox" id="darkToggle"> Dunkler Modus
+    </label>
+</div>
+
+<!-- Evaluation Modal -->
+<div id="evalModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+        <p>Wie fühlst du dich gerade?</p>
+        <button id="continueBtn" class="control-btn small">Weiter</button>
+    </div>
+</div>
+
+<audio id="heartbeat" src="safe_heartbeat.wav" preload="auto"></audio>
+
+<script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+}
+</script>
+</body>
+</html>

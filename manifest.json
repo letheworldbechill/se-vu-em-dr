@@ -1,0 +1,16 @@
+{
+  "name": "sevu EMDR Tool",
+  "short_name": "sevuEMDR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f8f4ed",
+  "theme_color": "#0077ff",
+  "icons": [
+    {
+      "src": "icon_sevu_emdr_refined.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
